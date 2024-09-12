@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HomeFixers Login</title>
+    <link rel="stylesheet" href="dynamic-login-styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="role-section">
+            <h1>Select Your Role</h1>
+            <div class="role-option">
+                <input type="checkbox" id="client" name="role" class="role-checkbox">
+                <label for="client" class="role-label">Client</label>
+            </div>
+            <div class="role-option">
+                <input type="checkbox" id="service-provider" name="role" class="role-checkbox">
+                <label for="service-provider" class="role-label">Service Provider</label>
+            </div>
+        </div>
+        <div class="login-section">
+            <div class="login-content">
+                <h1 id="welcomeMessage">Welcome!</h1>
+                <p>Please log in to continue</p>
+                <form>
+                    <label for="username">Username</label>
+                    <input type="text" id="username" name="username" disabled>
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" disabled>
+                    <button type="submit" disabled>Login</button>
+                </form>
+                <div class="login-footer">
+                    <p>Don't have an account? <a href="#">Sign Up</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const checkboxes = document.querySelectorAll('.role-checkbox');
+            const usernameInput = document.getElementById('username');
+            const passwordInput = document.getElementById('password');
+            const loginButton = document.querySelector('button[type="submit"]');
+            const welcomeMessage = document.getElementById('welcomeMessage');
+
+            checkboxes.forEach(checkbox => {
+                checkbox.addEventListener('change', function() {
+                    if (this.checked) {
+                        // Uncheck other checkboxes
+                        checkboxes.forEach(box => {
+                            if (box !== this) {
+                                box.checked = false;
+                            }
+                        });
+
+                        // Update welcome message
+                        if (this.id === 'client') {
+                            welcomeMessage.textContent = 'Welcome Client!';
+                        } else if (this.id === 'service-provider') {
+                            welcomeMessage.textContent = 'Welcome Service Provider!';
+                        }
+
+                        // Enable form inputs and button
+                        usernameInput.disabled = false;
+                        passwordInput.disabled = false;
+                        loginButton.disabled = false;
+                        loginButton.style.opacity = "1"; // Full opacity when enabled
+                    } else {
+                        // If no checkbox is checked, reset welcome message and disable form
+                        const anyChecked = Array.from(checkboxes).some(box => box.checked);
+                        if (!anyChecked) {
+                            welcomeMessage.textContent = 'Welcome!';
+                            usernameInput.disabled = true;
+                            passwordInput.disabled = true;
+                            loginButton.disabled = true;
+                            loginButton.style.opacity = "0.6"; // Disabled state
+                        }
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

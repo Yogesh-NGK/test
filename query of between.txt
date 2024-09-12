@@ -1,0 +1,1 @@
+update   Sales_Ird_Info set printvalue='0'  where InvNo between'SBS-00246-80/81' and 'SBS-00248-80/81'

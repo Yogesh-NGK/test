@@ -1,0 +1,168 @@
+/* dynamic-login-styles.css */
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #ecf0f1; /* Light Silver Background */
+    font-family: 'Roboto', sans-serif; /* Clean font */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    box-sizing: border-box;
+}
+
+.container {
+    display: flex;
+    width: 100%;
+    max-width: 1200px;
+    height: auto;
+    background: #ffffff; /* White Background for Container */
+    border-radius: 16px;
+    box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.15); /* Slightly darker shadow */
+}
+
+.role-section {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: #34495e; /* Medium Slate Blue Background */
+    color: #ecf0f1; /* Light Silver Text Color */
+    padding: 2rem;
+    box-sizing: border-box;
+}
+
+.role-section h1 {
+    font-size: 1.8rem;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.role-option {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.role-checkbox {
+    display: none; /* Hide actual checkbox */
+}
+
+.role-label {
+    width: 120px;
+    height: 120px;
+    background-color: #2c3e50; /* Dark Slate Blue */
+    color: #ecf0f1; /* Light Silver */
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    text-align: center;
+    font-size: 0.9rem;
+    position: relative;
+    transition: background-color 0.3s ease;
+}
+
+.role-checkbox:checked + .role-label {
+    background-color: #5d6d7e; /* Lighter Slate Blue when selected */
+}
+
+
+.role-label:hover {
+    background-color: #1f618d; /* Darker on hover */
+}
+
+.welcome-message {
+    margin-top: 2rem;
+    font-size: 1.4rem;
+    color: #ffffff; /* Light Silver Text */
+    text-align: center;
+}
+
+.login-section {
+    flex: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #ffffff; /* White Background */
+    padding: 2rem;
+    border-left: 1px solid #dee2e6; /* Light Gray Border */
+    box-sizing: border-box;
+}
+
+.login-content {
+    width: 100%;
+    max-width: 400px; /* Fixed max width for form */
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    text-align: center;
+}
+
+.login-content h1 {
+    font-size: 2rem;
+    color: #2c3e50; /* Dark Slate Blue */
+    margin-bottom: 1rem;
+}
+
+.login-content p {
+    font-size: 1rem;
+    color: #2c3e50; /* Dark Slate Blue */
+    margin-bottom: 2rem;
+}
+
+.login-content form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    width: 100%;
+}
+
+.login-content label {
+    font-size: 0.9rem;
+    color: #2c3e50; /* Dark Slate Blue */
+    font-weight: 500; /* Semi-bold text for labels */
+}
+
+.login-content input {
+    padding: 0.75rem;
+    border: 1px solid #34495e; /* Medium Slate Blue Border */
+    border-radius: 8px;
+    font-size: 1rem;
+    outline: none;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    color: #2c3e50; /* Dark Slate Blue Text */
+}
+
+.login-content input:focus {
+    border-color: #2980b9; /* Bright Sky Blue on focus */
+    box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.2); /* Subtle Shadow */
+}
+
+.login-content button {
+    padding: 0.75rem;
+    background: #1f618d; /* Darker Blue Background */
+    border: none;
+    border-radius: 8px;
+    color: #ffffff; /* White Text */
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.3s ease;
+    opacity: 0.6; /* Disabled state */
+}
+
+.login-content button:disabled {
+    background: #95a5a6; /* Gray for disabled button */
+    cursor: not-allowed; /* Change cursor to indicate it's not clickable */
+}
+
+.login-content button:not(:disabled) {
+    opacity: 1; /* Full opacity when enabled */
+}
+
+.login-content button:not(:disabled):hover {
+    background: #154360; /* Even Darker Blue on Hover */
+    transform: scale(1.02);
+}
